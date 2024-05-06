@@ -1,34 +1,33 @@
-FORECASTING BERAS JABAR
+# FORECASTING BERAS JABAR
 
-Produksi Beras:
+##### Produksi Beras:
 https://jabar.bps.go.id/indicator/53/713/1/produksi-beras-menurut-kabupaten-kota.html
-Tingkat Konsumsi:
+##### Tingkat Konsumsi:
 https://jabar.bps.go.id/publication/2020/10/21/fb790745cfb78cd438910f5f/analisis-statistik-komoditas-beras-provinsi-jawa-barat-2019.html
-Jumlah Penduduk di jawa barat:
+##### Jumlah Penduduk di jawa barat:
 https://jabar.bps.go.id/indicator/12/731/1/jumlah-penduduk-hasil-proyeksi-interim-di-provinsi-jawa-barat-menurut-kabupaten-kota-dan-jenis-kelamin.html
-UMP:
+##### UMP:
 https://www.detik.com/jabar/berita/d-7048595/menengok-besaran-ump-jabar-5-tahun-terakhir
-Harga Beras: 
+##### Harga Beras: 
 https://www.bi.go.id/hargapangan/TabelHarga/PasarTradisionalKomoditas
-Data Supply:
+##### Data Supply:
 https://panelharga.badanpangan.go.id/harga-produsen
 
-=======================================================================
-
-Random Forest (durasi agak lama sedikit)
+## Random Forest
 
 Memakai GridSearchCV untuk hyperparameter
 Pembagian data actual:data testing = 80:20
 
-# Initialize the RandomForestRegressor
+#### Initialize the RandomForestRegressor
 rf = RandomForestRegressor(random_state=42)
-# Setup GridSearchCV
+#### Setup GridSearchCV
 grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5, scoring='neg_mean_squared_error', verbose=1)
 
 best_model = RandomForestRegressor(max_depth=10, n_estimators=50, random_state=42)
 best_score = -63894.20518210005
 best_params = ’max_depth': 10, 'min_samples_split': 2, 'n_estimators': 50
 
+#### Hasil
 Semua fitur:
 RMSE: 1176.80
 MAE: 958.96
@@ -109,16 +108,14 @@ Harga Beras Peggilingan
 GKP Tingkat Penggilingan
 Year
 
-=======================================================================
-
-XGBoost (Extreme Gradient Boosting): (durasi cepat)
+## XGBoost (Extreme Gradient Boosting): (durasi cepat)
 
 Memakai GridSearchCV untuk hyperparameter
 Pembagian data actual:data testing = 80:20
 
-# Initialize XGBRegressor
+#### Initialize XGBRegressor
 xgb = XGBRegressor(random_state=42)
-# Setup GridSearchCV
+#### Setup GridSearchCV
 grid_search = GridSearchCV(estimator=xgb, param_grid=param_grid, cv=5, scoring='neg_mean_squared_error', verbose=1)
 
 best_model: XGBRegressor(base_score=None, booster=None, callbacks=None,
@@ -135,6 +132,7 @@ best_model: XGBRegressor(base_score=None, booster=None, callbacks=None,
 best_score: -109167.54564287179
 best_params: 'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 100
 
+#### Hasil
 Semua Fitur:
 RMSE: 1178.81
 MAE: 961.11
@@ -215,22 +213,21 @@ Harga Beras Penggilingan
 Produksi Beras
 UMP
 
-========================================================================
-
-GBM (Gradient Boosting Machines): (Cepat juga)
+## GBM (Gradient Boosting Machines): (Cepat juga)
 
 Memakai GridSearchCV untuk hyperparameter
 Pembagian data actual:data testing = 80:20
 
-# Initialize GradientBoostingRegressor
+#### Initialize GradientBoostingRegressor
 gbm = GradientBoostingRegressor(random_state=42)
-# Setup GridSearchCV
+#### Setup GridSearchCV
 grid_search = GridSearchCV(estimator=gbm, param_grid=param_grid, cv=5, scoring='neg_mean_squared_error', verbose=1)
 
 best_model: GradientBoostingRegressor(learning_rate=0.2, random_state=42)
 best_score:  -65602.10279055897
 best_params: 'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100
 
+#### Hasil
 Semua Fitur: 
 RMSE: 1186.09
 MAE: 971.82
