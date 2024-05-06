@@ -13,7 +13,7 @@ https://www.bi.go.id/hargapangan/TabelHarga/PasarTradisionalKomoditas
 ##### Data Supply:
 https://panelharga.badanpangan.go.id/harga-produsen
 
-## Random Forest
+## Random Forest:
 
 Memakai GridSearchCV untuk hyperparameter
 Pembagian data actual:data testing = 80:20
@@ -108,7 +108,7 @@ Harga Beras Peggilingan
 GKP Tingkat Penggilingan
 Year
 
-## XGBoost (Extreme Gradient Boosting): (durasi cepat)
+## XGBoost (Extreme Gradient Boosting):
 
 Memakai GridSearchCV untuk hyperparameter
 Pembagian data actual:data testing = 80:20
@@ -213,7 +213,7 @@ Harga Beras Penggilingan
 Produksi Beras
 UMP
 
-## GBM (Gradient Boosting Machines): (Cepat juga)
+## GBM (Gradient Boosting Machines):
 
 Memakai GridSearchCV untuk hyperparameter
 Pembagian data actual:data testing = 80:20
